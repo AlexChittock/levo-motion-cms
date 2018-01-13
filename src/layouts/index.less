@@ -1,0 +1,68 @@
+@import '../less/variables.less';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  font-family: @font;
+  color: @text;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', serif;
+  font-weight: normal;
+  margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+.template--inactive {
+  overflow: hidden;
+  position: static;
+}
+
+.controls {
+  font-size: 1.6em;
+  margin: 0.5em 10px 0.5em 0;
+  padding: 0.75em 2em 0.75em 0.75em;
+}
+
+/* Buttons */
+
+a.button, button {
+  background-color: transparent;
+  border: 1px solid @text;
+  cursor: pointer;
+  color: @text;
+  display: inline-block;
+  font-family: @font;
+
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: transparent url("../../assets/arrow.png") center center no-repeat;
+    width: 16px;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+  }
+
+  .controls;
+}
+
+/* Forms */
+
+input[type=text], input[type=email] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid @text;
+  
+  .controls;
+}

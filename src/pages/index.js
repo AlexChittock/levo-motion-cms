@@ -1,77 +1,26 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
-import Script from 'react-load-script';
+import React from 'react'
+import Link from 'gatsby-link'
 
-export default class IndexPage extends React.Component {
-  handleScriptLoad() {
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
-    window.netlifyIdentity.init();
-  }
+import SecondaryContent from '../components/SecondaryContent'
 
-  render() {
-    const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
-    return (
-      <section className="section">
-        <Script
-          url="https://identity.netlify.com/v1/netlify-identity-widget.js"
-          onLoad={this.handleScriptLoad.bind(this)}
-        />
-        <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-          </div>
-          {posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node: post }) => {
-            return (
-              <div className="content" style={{ border: '1px solid #eaecee', padding: '2em 4em' }} key={post.id}>
-                <p>
-                  <Link className="has-text-primary" to={post.frontmatter.path}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.frontmatter.path}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    );
-  }
-}
+import ReadyForClass from '../../assets/ready-for-class.jpg'
+import Newsletter from '../../assets/newsletter.jpg'
 
-export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-            path
-          }
-        }
-      }
-    }
-  }
-`;
+const IndexPage = (props) => (
+  <div>
+    <SecondaryContent background={ReadyForClass}>
+      <h2>Ready for class?</h2>
+      <Link className="button" to="/timetables">View timetable</Link>
+      <Link className="button" to="/booking">Book a class</Link>
+    </SecondaryContent>
+    <SecondaryContent background={Newsletter}> 
+      <h2>Sign up for our newsletter</h2>      
+      <form action="/newsletter">
+        <input type="email" name="email" placeholder="email address" />
+        <button type="submit" value="">Sign Up!</button>
+      </form>
+    </SecondaryContent>
+  </div>
+)
+
+export default IndexPage

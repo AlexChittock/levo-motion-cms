@@ -3,8 +3,8 @@ module.exports = {
     title: `Gatsby Default Starter`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -12,20 +12,17 @@ module.exports = {
         name: 'pages'
       }
     },
+    `gatsby-plugin-less`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-react-css-modules`,
       options: {
-        path: `${__dirname}/src/img`,
-        name: 'images'
-      }
+        filetypes: {
+          ".scss": { syntax: `postcss-scss` },
+        },
+  
+        // Exclude global styles from the plugin using a RegExp:
+        exclude: `\/global\/`,
+      },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: []
-      }
-    }
-  ]
-};
+  ],
+}
