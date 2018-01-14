@@ -13,6 +13,9 @@ const nav = (state, action) => {
 }
 
 const viewport = (state, action) => {
+  if (typeof window === 'undefined') {
+    return [0, 0]
+  }
   if (RESIZE == action.type) {
     return [
       window.innerHeight,
