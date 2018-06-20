@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^1.0.0",
+    "fb": "^2.0.0",
     "gatsby": "^1.9.118",
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-less": "^1.0.6",
@@ -11,6 +13,8 @@
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-source-filesystem": "^1.5.8",
     "gatsby-transformer-remark": "^1.7.21",
+    "netlify-lambda": "^0.4.0",
+    "react-draggable": "^3.0.5",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2"
   },

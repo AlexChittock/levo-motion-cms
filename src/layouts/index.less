@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-size: 62.5%;
+  font-size: 75%;
   font-family: @font;
   color: @text;
   -webkit-font-smoothing: antialiased;
@@ -15,8 +15,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0;
 }
 
+h1 {
+  font-size: 2em;
+  // text-align: center;
+  margin: 2em 0 0;
+}
+
 h2 {
-  font-size: 3em;
+  font-size: 1.8em;
 }
 
 .template--inactive {
@@ -30,39 +36,77 @@ h2 {
   padding: 0.75em 2em 0.75em 0.75em;
 }
 
-/* Buttons */
+.page {
 
-a.button, button {
-  background-color: transparent;
-  border: 1px solid @text;
-  cursor: pointer;
-  color: @text;
-  display: inline-block;
-  font-family: @font;
-
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-
-  &::after {
-    content: "";
-    position: absolute;
-    background: transparent url("../../assets/arrow.png") center center no-repeat;
-    width: 16px;
-    right: 10px;
-    top: 0;
-    bottom: 0;
+  .page__wrapper {
+    padding: 20px;
   }
 
-  .controls;
+  .page__content {
+    font-size: 1.333em;
+
+    @media(min-width: @maxBreakpoint) {
+      & {
+        width: @maxBreakpoint;
+        margin: 0 auto;
+      }
+    }
+
+    p {
+      line-height: 2em;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
 }
+
+/* Buttons */
+
+// a.button, button {
+//   background-color: transparent;
+//   border: 1px solid @text;
+//   cursor: pointer;
+//   color: @text;
+//   display: inline-block;
+//   font-family: @font;
+
+//   position: relative;
+//   text-align: left;
+//   text-decoration: none;
+
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     background: transparent url("../../assets/arrow.png") center center no-repeat;
+//     width: 16px;
+//     right: 10px;
+//     top: 0;
+//     bottom: 0;
+//   }
+
+//   .controls;
+// }
 
 /* Forms */
 
-input[type=text], input[type=email] {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid @text;
+// input[type=text], input[type=email] {
+//   background-color: transparent;
+//   border: none;
+//   border-bottom: 1px solid @text;
   
-  .controls;
+//   .controls;
+// }
+
+/* Tables */
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 5px;
+  }
 }

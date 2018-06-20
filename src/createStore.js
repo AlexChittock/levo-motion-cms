@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 import reducer from './reducers'
 
 const initialState = {
-  navReducer: {
+  nav: {
     isNavOpen: false
   }
 }

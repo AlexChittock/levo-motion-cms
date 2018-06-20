@@ -1,15 +1,20 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export default ({ data, ...props}) => {
+import ShortHeader from '../components/ShortHeader'
+
+export default ({ data, children, ...props}) => {
   const { markdownRemark: post } = data;
-  console.log(props)
   return (
-    <div>
-      <Helmet>
-        <title>{post.frontmatter.title}</title>
-      </Helmet>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    <div className="page">
+      <ShortHeader title={post.frontmatter.title} />
+      <div className="page__wrapper">
+        <Helmet>
+          <title>{post.frontmatter.title}</title>
+        </Helmet>
+        <article className="page__content" dangerouslySetInnerHTML={{ __html: post.html }} />
+        {children}
+      </div>
     </div>
   );
 };

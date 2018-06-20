@@ -31,18 +31,24 @@
 // export default connect(mapStateToProps, mapDispatchToProps)(Header)
 
 import React from 'react'
+
 import { connect } from 'react-redux'
+
+import bkg from '../../assets/header.jpg'
+
 import BaseHeader from './BaseHeader'
 
-const Header = ({ height }) =>
+const ShortHeader = ({ height, title }) =>
   <BaseHeader height={height}>
-    <video playsInline="" poster="https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e15/23416878_2085709718316667_1855887739770109952_n.jpg" preload="auto" src="i.mp4" type="video/mp4"  autoPlay loop></video>
+    <img className="header__bkg" src={bkg} />
+    <h1 className="header__title">{title}</h1>
   </BaseHeader>
 
-const mapStateToProps = (state) => {
-  return {
-    height: state.viewport[0]
-  }
-}
 
-export default connect(mapStateToProps, () => {})(Header)
+  const mapStateToProps = (state) => {
+    return {
+      height: state.viewport[0] * 0.75
+    }
+  }
+  
+  export default connect(mapStateToProps, () => {})(ShortHeader)

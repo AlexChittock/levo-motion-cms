@@ -10,7 +10,6 @@ import './index.less'
 
 const TemplateWrapper = ({ isNavOpen, children }) => (
   <div className={isNavOpen ? 'template--inactive' : ''}>
-    <Header />
     {children()}
   </div>
 )

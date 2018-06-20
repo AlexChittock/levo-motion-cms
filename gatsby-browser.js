@@ -6,10 +6,13 @@ import createStore from './src/createStore'
 
 import { resize } from './src/actions'
 
+import tabler from './src/components/Table'
+
 exports.replaceRouterComponent = ({ history }) => {
     const store = createStore()
 
     window.onresize = () => store.dispatch(resize())
+    window.onload = () => tabler()
 
     const ConnectedRouterWrapper = ({ children }) => (
         <Provider store={store}>

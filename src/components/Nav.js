@@ -13,7 +13,7 @@ const Nav = ({ isNavOpen, onToggle }) =>
       <li><Link to="/about">About</Link></li>
       <li><Link to="/news">News</Link></li>
       <li><Link to="/pricing">Pricing</Link></li>
-      <li><Link to="/timetables">Timetables</Link></li>
+      <li><Link to="/timetable">Timetables</Link></li>
       <li><Link to="/contact">Contact</Link></li>
     </ul>
   </nav>

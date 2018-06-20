@@ -1,3 +1,5 @@
+@import "../less/variables.less";
+
 header {
   position: relative;
   overflow: hidden;
@@ -12,16 +14,17 @@ header {
     z-index: 1;
   }
 
-  img#logo {
+  img.header__logo {
     display: block;
-    position: relative;
+    position: absolute;
     left: 50%;
-    margin: 20px 0 20px -50px;
+    top: 50%;
+    margin: -50px 0 0 -50px;
     width: 100px;
     height: 100px;
   }
 
-  video {
+  video, img.header__bkg {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,5 +33,24 @@ header {
     min-height: 100%;
     height: auto;
     width: auto;
+
+    @media(max-width: @mobBreakpoint) {
+      left: 100%;
+    }
+  }
+
+  h1.header__title {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+    font-size: 4em;  
+    text-align: left;
+    margin: 0 0 0.5em;
+
+    @media(min-width: @maxBreakpoint) {
+      width: @maxBreakpoint;
+      margin: 0 auto 0.5em;
+    }
   }
 }
