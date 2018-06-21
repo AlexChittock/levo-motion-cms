@@ -23,7 +23,8 @@ const styles = theme => ({
 });
 
 const Form = withStyles(styles)(({ classes }) =>
-  <form name="contact" method="POST" className={classes.container} netlify>
+  <form name="contact" method="post" className={classes.container} data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />  
     <TextField
       id="name"
       label="Name"
