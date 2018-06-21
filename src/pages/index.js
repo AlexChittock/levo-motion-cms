@@ -39,10 +39,12 @@ const IndexPage = ({ classes }) => (
     </SecondaryContent>
     <SecondaryContent background={Newsletter}> 
       <h2>Sign up for our newsletter</h2>      
-      <form name="newsletter" method="POST" className={classes.container} netlify>
+      <form name="newsletter" method="POST" className={classes.container} data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="newsletter" />  
         {/* <input type="email" name="email" placeholder="email address" /> */}
         <TextField
           id="email"
+          name="email"
           placeholder="email address"
           type="email"
           className={classes.textField}
@@ -50,6 +52,7 @@ const IndexPage = ({ classes }) => (
         <Button
           variant="outlined"
           className={classes.button}
+          type="submit"
           >
           Sign up <img src={Arrow} />
         </Button>

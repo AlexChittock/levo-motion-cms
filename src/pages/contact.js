@@ -27,12 +27,14 @@ const Form = withStyles(styles)(({ classes }) =>
     <input type="hidden" name="form-name" value="contact" />  
     <TextField
       id="name"
+      name="name"
       label="Name"
       margin="normal"
       className={classes.textField}
       />
     <TextField
       id="email"
+      name="email"
       label="Email"
       margin="normal"
       type="email"
@@ -40,6 +42,7 @@ const Form = withStyles(styles)(({ classes }) =>
       />
     <TextField
       id="message"
+      name="message"
       label="Message"
       margin="normal"
       multiline
@@ -49,6 +52,7 @@ const Form = withStyles(styles)(({ classes }) =>
     <Button
       variant="outlined"
       className={classes.button}
+      type="submit"
       >Send</Button>
       
   </form>)
