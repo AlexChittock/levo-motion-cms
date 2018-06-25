@@ -38,7 +38,7 @@ const taken = []
 
 // const isEventNearTime = (start) => cal[start] || cal[start - 1] || cal[start + 1]
 
-const setEvent = (day, start, end, label) => cal.push({ day, start, end, label })
+const setEvent = (day, start, end, label, link = false) => cal.push({ day, start, end, label, link })
 
 const getEvent = (day, start) => cal.reduce((res, evt) => evt.day == day && evt.start == start ? evt : res, { isEmpty: true })
 
@@ -51,10 +51,9 @@ const isEventNearTime = (start) => {
 
 
 
-setEvent(1, 6, 7, "Morning Yoga 4 ALL")
-setEvent(2, 19, 20, "Mid Week Mobility 19:20–20:05")
-setEvent(3, 6, 7, "Morning Yoga 4 ALL")
-setEvent(3, 18, 19, "Loaded Stretching 18:15—19:30")
+setEvent(1, 6, 7, "Morning Yoga 4 ALL", "classes/early-morning-yoga")
+setEvent(2, 19, 20, "Mid Week Mobility 19:20–20:05",  "classes/mid-week-mobility")
+setEvent(3, 6, 7, "Morning Yoga 4 ALL", "classes/early-morning-yoga")
 
 setEvent(5, 9, 11, "Stretch Therapy")
 
@@ -104,6 +103,9 @@ const styles = theme => ({
   },
   container: {
     overflow: 'auto'
+  },
+  href: {
+    color: '#fff'
   }
 })
 
@@ -127,9 +129,9 @@ const TimeTable = ({ classes }) =>
           <TableRow key={num}>
             <TableCell key={num+'-_'} className={classes.time}>{decimalToTime(num)} &mdash; {decimalToTime(num+1)}</TableCell>
             {range(0, 7).map(day => (
-              ({ label, end, isEmpty }) => isEmpty ?
+              ({ label, end, isEmpty, link }) => isEmpty ?
                 (isOverlapping(day, num) ? null : <TableCell key={num+'-'+day} />) :
-                <TableCell key={num+'-'+day} className={classes.event} rowSpan={end - num}>{label}</TableCell>
+                <TableCell key={num+'-'+day} className={classes.event} rowSpan={end - num}>{link ? <a className={classes.href} href={link}>{label}</a> : label}</TableCell>
               )(getEvent(day, num))
             )}
           </TableRow> :
