@@ -27,15 +27,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       result.errors.forEach(e => console.error(e.toString()));
       return Promise.reject(result.errors);
     }
-    const nav = result.data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.topLevel)
-    console.log("Nav", result.data.allMarkdownRemark.edges[0].node.frontmatter)
-    console.log(nav)
+    // const nav = result.data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.topLevel)
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: /*pageTpl, */path.resolve(`src/templates/${String(node.frontmatter.templateKey)}.js`),
         context: {
-          nav: nav
+          // nav: nav
         } // additional data can be passed via context
       });
     });

@@ -15,7 +15,7 @@ const TemplateWrapper = ({ isNavOpen, children }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.any
 }
 
 const mapStateToProps = (state) => {
