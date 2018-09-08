@@ -4,7 +4,8 @@ import Helmet from 'react-helmet'
 import ShortHeader from '../components/ShortHeader'
 
 export default ({ data, children, ...props}) => {
-  const { markdownRemark: post } = data;
+  console.log(pageQuery)
+  const { markdownRemark: post } = data
   return (
     <div className="page">
       <ShortHeader title={post.frontmatter.title} />

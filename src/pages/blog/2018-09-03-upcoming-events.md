@@ -1,6 +1,6 @@
 ---
-templateKey: blog-post
-path: blog/18/07/16/upcoming-events
+templateKey: page
+path: "/blog/18/07/16/upcoming-events"
 title: Upcoming Events!
 date: 2018-09-03T08:11:05.613Z
 description: Upcoming events in July
