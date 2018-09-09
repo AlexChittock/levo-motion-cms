@@ -27,16 +27,13 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
-  },
-  row: {
-    display: window.innerWidth < 768 ? 'block': 'flex'
   }
 });
 
 const IndexPage = ({ classes }) => (
   <div>
     <Header className={classes.header} />
-    <div className={classes.row}>
+    <div className='row'>
       <SecondaryContent background={ReadyForClass} className={classes.container}>
         <h2>Ready for class?</h2>
         <Button variant="outlined" className={classes.button} href="/timetable">View timetable</Button>
