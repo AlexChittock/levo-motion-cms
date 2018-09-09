@@ -42,17 +42,17 @@ collections:
   #     - {label: "Title", name: "title", widget: "string"}
   #     - {label: "Body", name: "body", widget: "markdown"}
 
-- name: "about"
-  label: "About"
-  files:
-    - file: "src/pages/about.md"
-      label: "About"
-      name: "about"
-      fields:
-        - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
-        - {label: "Path", name: "path", widget: "hidden", default: "/about"}
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
+  - name: "about"
+    label: "About"
+    files:
+      - file: "src/pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
+          - {label: "Path", name: "path", widget: "hidden", default: "/about"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
 
 
   - name: "pricing"
