@@ -36,7 +36,7 @@ import BaseHeader from './BaseHeader'
 
 const Header = ({ height }) =>
   <BaseHeader height={height}>
-    <video preload="auto" src="i.mp4" type="video/mp4" onCanPlay={(e) => { e.target.style.opacity = 1 }} autoPlay="autoplay" playsInline loop style={{ opacity: 0, transition: 'opacity 1s' }}></video>
+    <video preload="auto" src="i.mp4" type="video/mp4" onCanPlay={(e) => { e.target.play(); e.target.style.opacity = 1 }} muted="true" autoPlay="autoplay" playsInline loop style={{ opacity: 0, transition: 'opacity 1s' }}></video>
   </BaseHeader>
 
 const mapStateToProps = (state) => {
